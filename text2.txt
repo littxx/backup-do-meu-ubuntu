@@ -1,0 +1,144 @@
+#!/bin/bash
+
+# Função para adicionar plugins somente se não existirem
+add_plugin() {
+  plugin=$1
+  url=$2
+  if ! asdf plugin-list | grep -q "$plugin"; then
+    echo "Adicionando plugin: $plugin"
+    asdf plugin add "$plugin" "$url"
+  else
+    echo "Plugin $plugin já instalado, pulando..."
+  fi
+}
+
+# Adicionando plugins mais populares
+add_plugin nodejs https://github.com/asdf-vm/asdf-nodejs.git
+add_plugin java https://github.com/halcyon/asdf-java.git
+add_plugin golang https://github.com/kennyp/asdf-golang.git
+add_plugin rust https://github.com/code-lever/asdf-rust.git
+add_plugin erlang https://github.com/asdf-vm/asdf-erlang.git
+add_plugin ruby https://github.com/asdf-vm/asdf-ruby.git
+add_plugin python https://github.com/danhper/asdf-python.git
+#add_plugin docker https://github.com/PhantomYdn/asdf-docker.git
+add_plugin elixir https://github.com/asdf-vm/asdf-elixir.git
+#add_plugin php https://github.com/asdf-vm/asdf-php.git
+add_plugin scala https://github.com/scala/asdf-scala.git
+add_plugin terraform https://github.com/asdf-community/asdf-hashicorp.git
+add_plugin kubectl https://github.com/asdf-community/asdf-kubernetes-cli.git
+add_plugin awscli https://github.com/asdf-community/asdf-awscli.git
+add_plugin sqlite https://github.com/asdf-community/asdf-sqlite.git
+add_plugin nginx https://github.com/asdf-community/asdf-nginx.git
+add_plugin mongodb https://github.com/asdf-community/asdf-mongodb.git
+add_plugin dart https://github.com/asdf-vm/asdf-dart.git
+add_plugin ansible https://github.com/asdf-community/asdf-ansible.git
+add_plugin redis https://github.com/asdf-community/asdf-redis.git
+add_plugin grafana https://github.com/asdf-community/asdf-grafana.git
+add_plugin kubernetes https://github.com/asdf-community/asdf-kubernetes.git
+add_plugin elasticsearch https://github.com/asdf-community/asdf-elasticsearch.git
+add_plugin apache-cassandra https://github.com/asdf-community/asdf-cassandra.git
+add_plugin postgresql https://github.com/asdf-community/asdf-postgresql.git
+add_plugin mysql https://github.com/asdf-community/asdf-mysql.git
+add_plugin redis https://github.com/asdf-community/asdf-redis.git
+add_plugin csharp https://github.com/asdf-community/asdf-dotnet-core.git
+add_plugin julia https://github.com/asdf-vm/asdf-julia.git
+add_plugin lua https://github.com/asdf-community/asdf-lua.git
+add_plugin rustup https://github.com/asdf-community/asdf-rustup.git
+add_plugin vim https://github.com/asdf-community/asdf-vim.git
+add_plugin gradle https://github.com/asdf-community/asdf-gradle.git
+add_plugin r https://github.com/asdf-vm/asdf-r.git
+add_plugin crystal https://github.com/asdf-community/asdf-crystal.git
+add_plugin go-cli https://github.com/asdf-community/asdf-go-cli.git
+add_plugin nvm https://github.com/asdf-community/asdf-nvm.git
+add_plugin yarn https://github.com/asdf-community/asdf-yarn.git
+add_plugin apache-maven https://github.com/asdf-community/asdf-maven.git
+add_plugin sbt https://github.com/asdf-community/asdf-sbt.git
+add_plugin apache-hadoop https://github.com/asdf-community/asdf-hadoop.git
+add_plugin ruby-install https://github.com/asdf-community/asdf-ruby-install.git
+add_plugin jdk https://github.com/halcyon/asdf-jdk.git
+add_plugin hhvm https://github.com/asdf-community/asdf-hhvm.git
+add_plugin yarn https://github.com/asdf-community/asdf-yarn.git
+add_plugin cabal https://github.com/asdf-community/asdf-cabal.git
+add_plugin npm https://github.com/asdf-community/asdf-npm.git
+add_plugin terraform-latest https://github.com/asdf-community/asdf-terraform-latest.git
+# add_plugin helm https://github.com/asdf-community/asdf-helm.git
+add_plugin tomcat https://github.com/asdf-community/asdf-tomcat.git
+add_plugin zsh https://github.com/asdf-community/asdf-zsh.git
+add_plugin watchman https://github.com/asdf-community/asdf-watchman.git
+add_plugin openjdk https://github.com/halcyon/asdf-openjdk.git
+add_plugin golangci-lint https://github.com/asdf-community/asdf-golangci-lint.git
+add_plugin kotlin https://github.com/asdf-community/asdf-kotlin.git
+add_plugin deno https://github.com/asdf-community/asdf-deno.git
+add_plugin hugo https://github.com/asdf-community/asdf-hugo.git
+add_plugin hugo-cli https://github.com/asdf-community/asdf-hugo-cli.git
+add_plugin ci-cli https://github.com/asdf-community/asdf-ci-cli.git
+add_plugin rust-analyzer https://github.com/asdf-community/asdf-rust-analyzer.git
+
+# Instalando as versões mais recentes de cada linguagem/ferramenta
+install_latest() {
+  tool=$1
+  echo "Instalando a versão mais recente de: $tool"
+  asdf install "$tool" latest
+  asdf global "$tool" latest
+}
+
+install_latest nodejs
+install_latest java
+install_latest golang
+install_latest rust
+install_latest erlang
+install_latest ruby
+install_latest python
+# install_latest docker
+install_latest elixir
+# install_latest php
+install_latest scala
+install_latest terraform
+install_latest kubectl
+install_latest awscli
+install_latest sqlite
+install_latest nginx
+install_latest mongodb
+install_latest dart
+install_latest ansible
+install_latest redis
+install_latest grafana
+install_latest kubernetes
+install_latest elasticsearch
+install_latest apache-cassandra
+install_latest postgresql
+install_latest mysql
+install_latest redis
+install_latest csharp
+install_latest julia
+install_latest lua
+install_latest rustup
+install_latest vim
+install_latest gradle
+install_latest r
+install_latest crystal
+install_latest go-cli
+install_latest nvm
+install_latest yarn
+install_latest apache-maven
+install_latest sbt
+install_latest apache-hadoop
+install_latest ruby-install
+install_latest jdk
+install_latest hhvm
+install_latest yarn
+install_latest cabal
+install_latest npm
+install_latest terraform-latest
+# install_latest helm
+install_latest tomcat
+install_latest zsh
+install_latest watchman
+install_latest openjdk
+install_latest golangci-lint
+install_latest kotlin
+install_latest deno
+install_latest hugo
+install_latest hugo-cli
+install_latest ci-cli
+install_latest rust-analyzer
